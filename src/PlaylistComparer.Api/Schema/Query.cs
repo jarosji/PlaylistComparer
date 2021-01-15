@@ -15,9 +15,8 @@ namespace PlaylistComparer.Schema
             descriptor.Name("RootQuery");
 
             //Playlist Queries
-            descriptor.Field<TrackResolver>(t => t.Tracks(default, default)).Type<ListType<TrackType>>()
-                .Argument("idA", x => x.Type<StringType>().Description("ID of first playlist."))
-                .Argument("idB", x => x.Type<StringType>().Description("ID of second playlist."));
+            descriptor.Field<TrackResolver>(t => t.Tracks(default)).Type<ListType<TrackType>>()
+                .Argument("ids", x => x.Type<ListType<StringType>>().Description("IDs of playlists."));
         }
     }
 }

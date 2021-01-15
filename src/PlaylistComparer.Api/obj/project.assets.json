@@ -1744,11 +1744,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projekty\\Asp\\PlaylistComparer\\PlaylistComparer\\PlaylistComparer\\PlaylistComparer.Api.csproj",
+      "projectUniqueName": "C:\\Users\\Jirka\\source\\repos\\PlaylistComparer\\src\\PlaylistComparer.Api\\PlaylistComparer.Api.csproj",
       "projectName": "PlaylistComparer.Api",
-      "projectPath": "D:\\Projekty\\Asp\\PlaylistComparer\\PlaylistComparer\\PlaylistComparer\\PlaylistComparer.Api.csproj",
+      "projectPath": "C:\\Users\\Jirka\\source\\repos\\PlaylistComparer\\src\\PlaylistComparer.Api\\PlaylistComparer.Api.csproj",
       "packagesPath": "C:\\Users\\Jirka\\.nuget\\packages\\",
-      "outputPath": "D:\\Projekty\\Asp\\PlaylistComparer\\PlaylistComparer\\PlaylistComparer\\obj\\",
+      "outputPath": "C:\\Users\\Jirka\\source\\repos\\PlaylistComparer\\src\\PlaylistComparer.Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Microsoft\\Xamarin\\NuGet\\",
