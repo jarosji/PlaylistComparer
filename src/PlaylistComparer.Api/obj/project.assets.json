@@ -1744,9 +1744,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projekty\\Asp\\PlaylistComparer\\PlaylistComparer\\PlaylistComparer\\PlaylistComparer.csproj",
-      "projectName": "PlaylistComparer",
-      "projectPath": "D:\\Projekty\\Asp\\PlaylistComparer\\PlaylistComparer\\PlaylistComparer\\PlaylistComparer.csproj",
+      "projectUniqueName": "D:\\Projekty\\Asp\\PlaylistComparer\\PlaylistComparer\\PlaylistComparer\\PlaylistComparer.Api.csproj",
+      "projectName": "PlaylistComparer.Api",
+      "projectPath": "D:\\Projekty\\Asp\\PlaylistComparer\\PlaylistComparer\\PlaylistComparer\\PlaylistComparer.Api.csproj",
       "packagesPath": "C:\\Users\\Jirka\\.nuget\\packages\\",
       "outputPath": "D:\\Projekty\\Asp\\PlaylistComparer\\PlaylistComparer\\PlaylistComparer\\obj\\",
       "projectStyle": "PackageReference",

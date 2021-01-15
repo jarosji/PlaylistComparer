@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7lbBCUz6wsou8DBLJamB2Nmyi+WTIV+4UwHFW/WIZQLY5O12aQz545lFdFDdBP+ll8WQi+U9Vvs5XY9lpsfi/w==",
+  "dgSpecHash": "xSRwp7oo39Um2DLdLMRRZxh6ADSKgTLkXeTSaIHo3l5WVz2YxPzW3/0Y90BxGZyeeftuQJ6t43OC+rz7v5Qlwg==",
   "success": true,
-  "projectFilePath": "D:\\Projekty\\Asp\\PlaylistComparer\\PlaylistComparer\\PlaylistComparer\\PlaylistComparer.csproj",
+  "projectFilePath": "D:\\Projekty\\Asp\\PlaylistComparer\\PlaylistComparer\\PlaylistComparer\\PlaylistComparer.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Jirka\\.nuget\\packages\\greendonut\\11.0.8\\greendonut.11.0.8.nupkg.sha512",
     "C:\\Users\\Jirka\\.nuget\\packages\\hotchocolate\\11.0.8\\hotchocolate.11.0.8.nupkg.sha512",
