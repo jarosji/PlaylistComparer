@@ -8,17 +8,18 @@ namespace PlaylistComparer.Schema.Track
 {
     public class TrackResolver
     {
+        private readonly SpotifyClient SpotifyClient;
+
+        public TrackResolver(SpotifyClient spotifyClient)
+        {
+            SpotifyClient = spotifyClient;
+        }
         public List<FullTrack> Tracks(List<String> ids)
         {
-            var config = SpotifyClientConfig
-                .CreateDefault()
-                .WithAuthenticator(new ClientCredentialsAuthenticator("c8bc902470624f89bb3a70aab0fedc0b", "9f96b0c0d4d0425cb5166bccd6189e30"));
-            var spotify = new SpotifyClient(config);
-
             List<FullTrack> tracks = new List<FullTrack>();
             foreach (String id in ids)
             {
-                FullPlaylist playlist = spotify.Playlists.Get(id).Result;
+                FullPlaylist playlist = SpotifyClient.Playlists.Get(id).Result;
                 foreach (PlaylistTrack<IPlayableItem> item in playlist.Tracks.Items)
                 {
                     if (item.Track is FullTrack track)
@@ -27,7 +28,11 @@ namespace PlaylistComparer.Schema.Track
                     }
                 }
             }
-            return tracks.GroupBy(x=>x.Id).Where(x=>x.Count()==ids.Count).Select(x=> x.First()).ToList();
+
+            return tracks.GroupBy(x=>x.Id)
+                .Where(x=>x.Count()==ids.Count)
+                .Select(x=> x.First())
+                .ToList();
         }
     }
 }

@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using PlaylistComparer.Schema;
+using SpotifyAPI.Web;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +30,12 @@ namespace PlaylistComparer
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            var config = SpotifyClientConfig
+                .CreateDefault()
+                .WithAuthenticator(new ClientCredentialsAuthenticator("c8bc902470624f89bb3a70aab0fedc0b", "9f96b0c0d4d0425cb5166bccd6189e30"));
+            var spotify = new SpotifyClient(config);
+            services.AddSingleton(spotify);
 
             services.AddGraphQLServer()
 
