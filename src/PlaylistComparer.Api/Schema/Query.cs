@@ -1,4 +1,5 @@
 ﻿using HotChocolate.Types;
+using PlaylistComparer.Api.Schema.Playlist;
 using PlaylistComparer.Schema.Track;
 using SpotifyAPI.Web;
 using System;
@@ -15,6 +16,10 @@ namespace PlaylistComparer.Schema
             descriptor.Name("RootQuery");
 
             //Playlist Queries
+            descriptor.Field<PlaylistResolver>(t => t.Playlist(default)).Type<PlaylistType>();
+            descriptor.Field<PlaylistResolver>(t => t.Playlists(default)).Type<ListType<PlaylistType>>();
+
+            //Track Queries
             descriptor.Field<TrackResolver>(t => t.Tracks(default)).Type<ListType<TrackType>>()
                 .Argument("ids", x => x.Type<ListType<StringType>>().Description("IDs of playlists."));
         }

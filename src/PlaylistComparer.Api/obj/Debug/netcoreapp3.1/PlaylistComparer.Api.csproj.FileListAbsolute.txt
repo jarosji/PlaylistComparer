@@ -90,7 +90,6 @@ D:\Projekty\Asp\PlaylistComparer\src\PlaylistComparer.Api\obj\Debug\netcoreapp3.
 D:\Projekty\Asp\PlaylistComparer\src\PlaylistComparer.Api\obj\Debug\netcoreapp3.1\PlaylistComparer.Api.dll
 D:\Projekty\Asp\PlaylistComparer\src\PlaylistComparer.Api\obj\Debug\netcoreapp3.1\PlaylistComparer.Api.pdb
 D:\Projekty\Asp\PlaylistComparer\src\PlaylistComparer.Api\obj\Debug\netcoreapp3.1\PlaylistComparer.Api.genruntimeconfig.cache
-C:\Users\Jirka\Source\Repos\PlaylistComparer\src\PlaylistComparer.Api\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\Jirka\Source\Repos\PlaylistComparer\src\PlaylistComparer.Api\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\Jirka\Source\Repos\PlaylistComparer\src\PlaylistComparer.Api\bin\Debug\netcoreapp3.1\PlaylistComparer.Api.exe
 C:\Users\Jirka\Source\Repos\PlaylistComparer\src\PlaylistComparer.Api\bin\Debug\netcoreapp3.1\PlaylistComparer.Api.deps.json
