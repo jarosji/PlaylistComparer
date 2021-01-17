@@ -2,6 +2,18 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "EmbedIO/3.4.3": {
+        "type": "package",
+        "dependencies": {
+          "Unosquare.Swan.Lite": "3.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/EmbedIO.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/EmbedIO.dll": {}
+        }
+      },
       "GreenDonut/11.0.8": {
         "type": "package",
         "dependencies": {
@@ -583,6 +595,31 @@
           "lib/netstandard2.0/Microsoft.Net.Http.Headers.dll": {}
         }
       },
+      "Microsoft.Owin/3.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Owin": "1.0.0"
+        },
+        "compile": {
+          "lib/net45/Microsoft.Owin.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.Owin.dll": {}
+        }
+      },
+      "Microsoft.Owin.Security/3.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Owin": "3.0.1",
+          "Owin": "1.0.0"
+        },
+        "compile": {
+          "lib/net45/Microsoft.Owin.Security.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.Owin.Security.dll": {}
+        }
+      },
       "Newtonsoft.Json/12.0.3": {
         "type": "package",
         "compile": {
@@ -590,6 +627,28 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Owin/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Owin.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Owin.dll": {}
+        }
+      },
+      "Owin.Security.Providers.Spotify/2.26.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Owin.Security": "3.0.1",
+          "Newtonsoft.Json": "8.0.3"
+        },
+        "compile": {
+          "lib/net45/Owin.Security.Providers.Spotify.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Owin.Security.Providers.Spotify.dll": {}
         }
       },
       "SpotifyAPI.Web/6.0.0": {
@@ -602,6 +661,19 @@
         },
         "runtime": {
           "lib/netstandard2.1/SpotifyAPI.Web.dll": {}
+        }
+      },
+      "SpotifyAPI.Web.Auth/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "EmbedIO": "3.4.3",
+          "SpotifyAPI.Web": "6.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/SpotifyAPI.Web.Auth.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/SpotifyAPI.Web.Auth.dll": {}
         }
       },
       "System.Buffers/4.5.0": {
@@ -702,10 +774,32 @@
         "runtime": {
           "lib/netcoreapp2.0/_._": {}
         }
+      },
+      "Unosquare.Swan.Lite/3.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Swan.Lite.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Swan.Lite.dll": {}
+        }
       }
     }
   },
   "libraries": {
+    "EmbedIO/3.4.3": {
+      "sha512": "YM6hpZNAfvbbixfG9T4lWDGfF0D/TqutbTROL4ogVcHKwPF1hp+xS3ABwd3cxxTxvDFkj/zZl57QgWuFA8Igxw==",
+      "type": "package",
+      "path": "embedio/3.4.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "embedio.3.4.3.nupkg.sha512",
+        "embedio.nuspec",
+        "lib/netstandard2.0/EmbedIO.dll",
+        "lib/netstandard2.0/EmbedIO.xml"
+      ]
+    },
     "GreenDonut/11.0.8": {
       "sha512": "8tDNaY2n4G8QeDfzNlCXCr/O7jiZAitNvkAK6RiwmyIUlpmxKFq9VGmUIm5s7WC0G6zibcE1VfrMZ3ElcT/INQ==",
       "type": "package",
@@ -1325,6 +1419,32 @@
         "microsoft.net.http.headers.nuspec"
       ]
     },
+    "Microsoft.Owin/3.0.1": {
+      "sha512": "64yZsGN9uRnXNVAyAT4F6KWmdDUJ6yX4uqzxKTdGANKH1oMt0IKZ7THRRa3mXIOo8iSu4tq/DCBUycUY9pXZzw==",
+      "type": "package",
+      "path": "microsoft.owin/3.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Microsoft.Owin.XML",
+        "lib/net45/Microsoft.Owin.dll",
+        "microsoft.owin.3.0.1.nupkg.sha512",
+        "microsoft.owin.nuspec"
+      ]
+    },
+    "Microsoft.Owin.Security/3.0.1": {
+      "sha512": "LPoUxaTKzmjs97wDCTtBIoRwp30Jkq9UFnoj+EfMFJv+XxjcvHE/D573LRomA568WhvXoI2cUiwhZFvqfbLMVg==",
+      "type": "package",
+      "path": "microsoft.owin.security/3.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Microsoft.Owin.Security.XML",
+        "lib/net45/Microsoft.Owin.Security.dll",
+        "microsoft.owin.security.3.0.1.nupkg.sha512",
+        "microsoft.owin.security.nuspec"
+      ]
+    },
     "Newtonsoft.Json/12.0.3": {
       "sha512": "6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
       "type": "package",
@@ -1356,6 +1476,30 @@
         "packageIcon.png"
       ]
     },
+    "Owin/1.0.0": {
+      "sha512": "OseTFniKmyp76mEzOBwIKGBRS5eMoYNkMKaMXOpxx9jv88+b6mh1rSaw43vjBOItNhaLFG3d0a20PfHyibH5sw==",
+      "type": "package",
+      "path": "owin/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/Owin.dll",
+        "owin.1.0.0.nupkg.sha512",
+        "owin.nuspec"
+      ]
+    },
+    "Owin.Security.Providers.Spotify/2.26.0": {
+      "sha512": "FtUX0txiasNRdOvJE4mk6HHKZ6LWBMQ6TCA+CNqH+JmrKe5itUHhJZGpF7G0XqqZQ+lIB4GPWT7I96P/in1KQA==",
+      "type": "package",
+      "path": "owin.security.providers.spotify/2.26.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Owin.Security.Providers.Spotify.dll",
+        "owin.security.providers.spotify.2.26.0.nupkg.sha512",
+        "owin.security.providers.spotify.nuspec"
+      ]
+    },
     "SpotifyAPI.Web/6.0.0": {
       "sha512": "wEj3D6aqVt5mhkDoMbeDvVzqL4WyqDzG75hRMnELGCIhWK/ha5XkOpusilanCmd2+NH/fsNjD8W9o7An+p7Weg==",
       "type": "package",
@@ -1371,6 +1515,23 @@
         "lib/netstandard2.1/SpotifyAPI.Web.xml",
         "spotifyapi.web.6.0.0.nupkg.sha512",
         "spotifyapi.web.nuspec"
+      ]
+    },
+    "SpotifyAPI.Web.Auth/6.0.0": {
+      "sha512": "1YdQAQrAmTUWty2buEJP8n+ZQxJrYZZyV4Cfi/7Z4KDYkXKcmfn4WSBQ6EPtPhJMXeCGbkg0/gaJSvSvbd5RVg==",
+      "type": "package",
+      "path": "spotifyapi.web.auth/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net5.0/SpotifyAPI.Web.Auth.dll",
+        "lib/net5.0/SpotifyAPI.Web.Auth.xml",
+        "lib/netstandard2.0/SpotifyAPI.Web.Auth.dll",
+        "lib/netstandard2.0/SpotifyAPI.Web.Auth.xml",
+        "lib/netstandard2.1/SpotifyAPI.Web.Auth.dll",
+        "lib/netstandard2.1/SpotifyAPI.Web.Auth.xml",
+        "spotifyapi.web.auth.6.0.0.nupkg.sha512",
+        "spotifyapi.web.auth.nuspec"
       ]
     },
     "System.Buffers/4.5.0": {
@@ -1726,6 +1887,21 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "Unosquare.Swan.Lite/3.0.0": {
+      "sha512": "noPwJJl1Q9uparXy1ogtkmyAPGNfSGb0BLT1292nFH1jdMKje6o2kvvrQUvF9Xklj+IoiAI0UzF6Aqxlvo10lw==",
+      "type": "package",
+      "path": "unosquare.swan.lite/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net461/Swan.Lite.dll",
+        "lib/net461/Swan.Lite.xml",
+        "lib/netstandard2.0/Swan.Lite.dll",
+        "lib/netstandard2.0/Swan.Lite.xml",
+        "unosquare.swan.lite.3.0.0.nupkg.sha512",
+        "unosquare.swan.lite.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -1733,7 +1909,9 @@
       "HotChocolate >= 11.0.8",
       "HotChocolate.AspNetCore >= 11.0.8",
       "HotChocolate.AspNetCore.Playground >= 10.5.5",
-      "SpotifyAPI.Web >= 6.0.0"
+      "Owin.Security.Providers.Spotify >= 2.26.0",
+      "SpotifyAPI.Web >= 6.0.0",
+      "SpotifyAPI.Web.Auth >= 6.0.0"
     ]
   },
   "packageFolders": {
@@ -1794,7 +1972,15 @@
             "target": "Package",
             "version": "[10.5.5, )"
           },
+          "Owin.Security.Providers.Spotify": {
+            "target": "Package",
+            "version": "[2.26.0, )"
+          },
           "SpotifyAPI.Web": {
+            "target": "Package",
+            "version": "[6.0.0, )"
+          },
+          "SpotifyAPI.Web.Auth": {
             "target": "Package",
             "version": "[6.0.0, )"
           }
@@ -1820,5 +2006,47 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Owin 3.0.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.Owin",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Owin.Security 3.0.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.Owin.Security",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Owin 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "Owin",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Owin.Security.Providers.Spotify 2.26.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "Owin.Security.Providers.Spotify",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }

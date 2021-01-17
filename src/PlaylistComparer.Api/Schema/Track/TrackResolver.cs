@@ -1,4 +1,6 @@
-﻿using SpotifyAPI.Web;
+﻿using PlaylistComparer.Api;
+using PlaylistComparer.Api.Models;
+using SpotifyAPI.Web;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,18 +10,19 @@ namespace PlaylistComparer.Schema.Track
 {
     public class TrackResolver
     {
-        private readonly SpotifyClient SpotifyClient;
+        private readonly SpotifyClientBuilder SpotifyClientBuilder;
 
-        public TrackResolver(SpotifyClient spotifyClient)
+        public TrackResolver(SpotifyClientBuilder spotifyClientBuilder)
         {
-            SpotifyClient = spotifyClient;
+            SpotifyClientBuilder = spotifyClientBuilder;
         }
-        public List<FullTrack> Tracks(List<String> ids)
+        public async Task<List<FullTrack>> Tracks(List<String> ids)
         {
+            var spotify = await SpotifyClientBuilder.BuildClient();
             List<FullTrack> tracks = new List<FullTrack>();
             foreach (String id in ids)
             {
-                FullPlaylist playlist = SpotifyClient.Playlists.Get(id).Result;
+                FullPlaylist playlist = spotify.Playlists.Get(id).Result;
                 foreach (PlaylistTrack<IPlayableItem> item in playlist.Tracks.Items)
                 {
                     if (item.Track is FullTrack track)

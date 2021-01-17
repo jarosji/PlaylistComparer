@@ -12,7 +12,9 @@
     <PackageReference Include="HotChocolate" Version="11.0.8" />
     <PackageReference Include="HotChocolate.AspNetCore" Version="11.0.8" />
     <PackageReference Include="HotChocolate.AspNetCore.Playground" Version="10.5.5" />
+    <PackageReference Include="Owin.Security.Providers.Spotify" Version="2.26.0" />
     <PackageReference Include="SpotifyAPI.Web" Version="6.0.0" />
+    <PackageReference Include="SpotifyAPI.Web.Auth" Version="6.0.0" />
   </ItemGroup>
 
 
