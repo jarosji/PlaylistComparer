@@ -38,6 +38,16 @@ namespace PlaylistComparer
         {
             services.AddControllers();
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: "basicOrigins",
+                                  builder =>
+                                  {
+                                      builder.WithOrigins("http://localhost:3000").AllowAnyHeader()
+                                      .WithMethods("PUT", "POST", "PATCH", "GET", "DELETE", "OPTIONS").AllowCredentials();
+                                  });
+            });
+
             //services.AddHttpContextAccessor();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSingleton(SpotifyClientConfig.CreateDefault().WithAuthenticator(new ClientCredentialsAuthenticator("c8bc902470624f89bb3a70aab0fedc0b", "9f96b0c0d4d0425cb5166bccd6189e30")));
@@ -60,24 +70,6 @@ namespace PlaylistComparer
               {
                   options.ExpireTimeSpan = TimeSpan.FromMinutes(50);
               });
-            //  .AddS(options =>
-            //  {
-            //      options.ClientId = Configuration["SPOTIFY_CLIENT_ID"];
-            //      options.ClientSecret = Configuration["SPOTIFY_CLIENT_SECRET"];
-            //      options.CallbackPath = "/Auth/callback";
-            //      options.SaveTokens = true;
-
-            //      var scopes = new List<string> {
-            //UserReadEmail, UserReadPrivate, PlaylistReadPrivate, PlaylistReadCollaborative
-            //    };
-            //      options.Scope.Add(string.Join(",", scopes));
-            //  });
-
-            //var config = SpotifyClientConfig
-            //    .CreateDefault()
-            //    .WithAuthenticator(new ClientCredentialsAuthenticator("c8bc902470624f89bb3a70aab0fedc0b", "9f96b0c0d4d0425cb5166bccd6189e30"));
-            //var spotify = new SpotifyClient(config);
-            //services.AddSingleton(spotify);
 
             services.AddGraphQLServer()
                 .AddQueryType<Query>()
@@ -92,6 +84,8 @@ namespace PlaylistComparer
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors("basicOrigins");
 
             app.UseWebSockets();
             app.UseRouting();
