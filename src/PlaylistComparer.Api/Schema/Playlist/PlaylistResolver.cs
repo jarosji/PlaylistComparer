@@ -1,4 +1,5 @@
 ﻿using PlaylistComparer.Api.Models;
+using PlaylistComparer.Api.Utils;
 using SpotifyAPI.Web;
 using System;
 using System.Collections.Generic;
@@ -10,13 +11,16 @@ namespace PlaylistComparer.Api.Schema.Playlist
     public class PlaylistResolver
     {
         private readonly SpotifyClientBuilder SpotifyClientBuilder;
-        
-        public PlaylistResolver(SpotifyClientBuilder spotifyClientBuilder)
+        private readonly SpotifyParser SpotifyParser;
+
+        public PlaylistResolver(SpotifyClientBuilder spotifyClientBuilder, SpotifyParser spotifyParser)
         {
             SpotifyClientBuilder = spotifyClientBuilder;
+            SpotifyParser = spotifyParser;
         }
         public async Task<PlaylistModel> Playlist(String id)
         {
+            id = SpotifyParser.parse(id);
             var spotify = await SpotifyClientBuilder.BuildClient();
 
             PlaylistModel playlist = new PlaylistModel(spotify.Playlists.Get(id).Result);
@@ -39,7 +43,8 @@ namespace PlaylistComparer.Api.Schema.Playlist
             List<PlaylistModel> playlists = new List<PlaylistModel>();
             foreach (String id in ids)
             {
-                playlists.Add(new PlaylistModel(spotify.Playlists.Get(id).Result));
+                String parsedId = SpotifyParser.parse(id);
+                playlists.Add(new PlaylistModel(spotify.Playlists.Get(parsedId).Result));
             }
             foreach (PlaylistModel playlist in playlists)
             {
@@ -59,14 +64,16 @@ namespace PlaylistComparer.Api.Schema.Playlist
         }
         public async Task<bool> RenamePlaylist(String id, String name)
         {
+            id = SpotifyParser.parse(id);
             var spotify = await SpotifyClientBuilder.BuildClient();
             PlaylistChangeDetailsRequest change = new PlaylistChangeDetailsRequest();
             change.Name = name;
             await spotify.Playlists.ChangeDetails(id, change);
             return true;
         }
-        public async Task<bool> RemoveDuplicates(String id)
+        public async Task<PlaylistModel> RemoveDuplicates(String id)
         {
+            id = SpotifyParser.parse(id);
             var spotify = await SpotifyClientBuilder.BuildClient();
             PlaylistModel playlist = new PlaylistModel(spotify.Playlists.Get(id).Result);
             List<FullTrack> tracks = new List<FullTrack>();
@@ -96,7 +103,16 @@ namespace PlaylistComparer.Api.Schema.Playlist
                 SnapshotId = playlist.SnapshotId
             };
             await spotify.Playlists.RemoveItems(id, removeItemsRequest);
+            return new PlaylistModel(await spotify.Playlists.Get(id));
+        }
+        public async Task<bool> CreatePlaylist(PlaylistInput input)
+        {
+            var spotify = await SpotifyClientBuilder.BuildClient();
+            PlaylistCreateRequest playlistCreate = new PlaylistCreateRequest(input.Name);
+            FullPlaylist playlist = await spotify.Playlists.Create(spotify.UserProfile.Current().Result.Id, playlistCreate);
 
+            PlaylistAddItemsRequest playlistAddItems = new PlaylistAddItemsRequest(input.Uris);
+            await spotify.Playlists.AddItems(playlist.Id, playlistAddItems);
             return true;
         }
     }

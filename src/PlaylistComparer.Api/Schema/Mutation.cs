@@ -1,6 +1,7 @@
 ﻿using HotChocolate.Types;
 using PlaylistComparer.Api.Schema.Playlist;
 using PlaylistComparer.Api.Schema.User;
+using SpotifyAPI.Web;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,8 @@ namespace PlaylistComparer.Api.Schema
             descriptor.Field<UserResolver>(x => x.LoginSpotify(default)).Type<BooleanType>().Description("Get code from localhost/:port/test/");
 
             descriptor.Field<PlaylistResolver>(x => x.RenamePlaylist(default, default)).Type<BooleanType>();
-            descriptor.Field<PlaylistResolver>(x => x.RemoveDuplicates(default)).Type<BooleanType>();
+            descriptor.Field<PlaylistResolver>(x => x.RemoveDuplicates(default)).Type<PlaylistType>();
+            descriptor.Field<PlaylistResolver>(x => x.CreatePlaylist(default)).Type<BooleanType>();
         }
     }
 }

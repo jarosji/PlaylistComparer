@@ -1,5 +1,6 @@
 ﻿using PlaylistComparer.Api;
 using PlaylistComparer.Api.Models;
+using PlaylistComparer.Api.Utils;
 using SpotifyAPI.Web;
 using System;
 using System.Collections.Generic;
@@ -11,10 +12,12 @@ namespace PlaylistComparer.Schema.Track
     public class TrackResolver
     {
         private readonly SpotifyClientBuilder SpotifyClientBuilder;
+        private readonly SpotifyParser SpotifyParser;
 
-        public TrackResolver(SpotifyClientBuilder spotifyClientBuilder)
+        public TrackResolver(SpotifyClientBuilder spotifyClientBuilder, SpotifyParser spotifyParser)
         {
             SpotifyClientBuilder = spotifyClientBuilder;
+            SpotifyParser = spotifyParser;
         }
         public async Task<List<FullTrack>> Tracks(List<String> ids)
         {
@@ -22,7 +25,8 @@ namespace PlaylistComparer.Schema.Track
             List<FullTrack> tracks = new List<FullTrack>();
             foreach (String id in ids)
             {
-                FullPlaylist playlist = spotify.Playlists.Get(id).Result;
+                String parsedId = SpotifyParser.parse(id);
+                FullPlaylist playlist = await spotify.Playlists.Get(parsedId);
                 foreach (PlaylistTrack<IPlayableItem> item in playlist.Tracks.Items)
                 {
                     if (item.Track is FullTrack track)

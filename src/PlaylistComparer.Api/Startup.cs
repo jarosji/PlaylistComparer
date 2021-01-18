@@ -21,6 +21,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using static SpotifyAPI.Web.Scopes;
+using PlaylistComparer.Api.Utils;
 
 namespace PlaylistComparer
 {
@@ -51,7 +52,8 @@ namespace PlaylistComparer
             //services.AddHttpContextAccessor();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSingleton(SpotifyClientConfig.CreateDefault().WithAuthenticator(new ClientCredentialsAuthenticator("c8bc902470624f89bb3a70aab0fedc0b", "9f96b0c0d4d0425cb5166bccd6189e30")));
-            services.AddScoped<SpotifyClientBuilder>();
+            services.AddTransient<SpotifyClientBuilder>();
+            services.AddSingleton<SpotifyParser>();
 
             //services.AddAuthorization(options =>
             //{
