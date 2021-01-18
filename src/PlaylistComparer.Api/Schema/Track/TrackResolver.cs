@@ -1,5 +1,4 @@
 ﻿using PlaylistComparer.Api;
-using PlaylistComparer.Api.Models;
 using PlaylistComparer.Api.Utils;
 using SpotifyAPI.Web;
 using System;

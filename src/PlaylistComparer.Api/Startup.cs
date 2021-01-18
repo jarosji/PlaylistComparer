@@ -54,6 +54,7 @@ namespace PlaylistComparer
             services.AddSingleton(SpotifyClientConfig.CreateDefault().WithAuthenticator(new ClientCredentialsAuthenticator("c8bc902470624f89bb3a70aab0fedc0b", "9f96b0c0d4d0425cb5166bccd6189e30")));
             services.AddTransient<SpotifyClientBuilder>();
             services.AddSingleton<SpotifyParser>();
+            services.AddSingleton<SpotifyToken>();
 
             //services.AddAuthorization(options =>
             //{
@@ -70,7 +71,7 @@ namespace PlaylistComparer
               })
               .AddCookie(options =>
               {
-                  options.ExpireTimeSpan = TimeSpan.FromMinutes(50);
+                  
               });
 
             services.AddGraphQLServer()
