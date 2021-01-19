@@ -57,9 +57,9 @@
               "target": "Package",
               "version": "[10.5.5, )"
             },
-            "Owin.Security.Providers.Spotify": {
+            "Microsoft.Owin.Security.OAuth": {
               "target": "Package",
-              "version": "[2.26.0, )"
+              "version": "[4.1.1, )"
             },
             "SpotifyAPI.Web": {
               "target": "Package",

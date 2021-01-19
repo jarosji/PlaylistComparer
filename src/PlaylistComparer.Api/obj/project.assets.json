@@ -595,7 +595,7 @@
           "lib/netstandard2.0/Microsoft.Net.Http.Headers.dll": {}
         }
       },
-      "Microsoft.Owin/3.0.1": {
+      "Microsoft.Owin/4.1.1": {
         "type": "package",
         "dependencies": {
           "Owin": "1.0.0"
@@ -607,10 +607,10 @@
           "lib/net45/Microsoft.Owin.dll": {}
         }
       },
-      "Microsoft.Owin.Security/3.0.1": {
+      "Microsoft.Owin.Security/4.1.1": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Owin": "3.0.1",
+          "Microsoft.Owin": "4.1.1",
           "Owin": "1.0.0"
         },
         "compile": {
@@ -618,6 +618,21 @@
         },
         "runtime": {
           "lib/net45/Microsoft.Owin.Security.dll": {}
+        }
+      },
+      "Microsoft.Owin.Security.OAuth/4.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Owin": "4.1.1",
+          "Microsoft.Owin.Security": "4.1.1",
+          "Newtonsoft.Json": "10.0.1",
+          "Owin": "1.0.0"
+        },
+        "compile": {
+          "lib/net45/Microsoft.Owin.Security.OAuth.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.Owin.Security.OAuth.dll": {}
         }
       },
       "Newtonsoft.Json/12.0.3": {
@@ -636,19 +651,6 @@
         },
         "runtime": {
           "lib/net40/Owin.dll": {}
-        }
-      },
-      "Owin.Security.Providers.Spotify/2.26.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Owin.Security": "3.0.1",
-          "Newtonsoft.Json": "8.0.3"
-        },
-        "compile": {
-          "lib/net45/Owin.Security.Providers.Spotify.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Owin.Security.Providers.Spotify.dll": {}
         }
       },
       "SpotifyAPI.Web/6.0.0": {
@@ -1419,30 +1421,43 @@
         "microsoft.net.http.headers.nuspec"
       ]
     },
-    "Microsoft.Owin/3.0.1": {
-      "sha512": "64yZsGN9uRnXNVAyAT4F6KWmdDUJ6yX4uqzxKTdGANKH1oMt0IKZ7THRRa3mXIOo8iSu4tq/DCBUycUY9pXZzw==",
+    "Microsoft.Owin/4.1.1": {
+      "sha512": "KtjkRz4COQRqrwOBMf+XKW1ZsdiFMqipbmM0khhNJIx6U9VRprbwRGdSq1++PHlZrIwHMmwRHC0nILNSHGkcaA==",
       "type": "package",
-      "path": "microsoft.owin/3.0.1",
+      "path": "microsoft.owin/4.1.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/net45/Microsoft.Owin.XML",
         "lib/net45/Microsoft.Owin.dll",
-        "microsoft.owin.3.0.1.nupkg.sha512",
+        "microsoft.owin.4.1.1.nupkg.sha512",
         "microsoft.owin.nuspec"
       ]
     },
-    "Microsoft.Owin.Security/3.0.1": {
-      "sha512": "LPoUxaTKzmjs97wDCTtBIoRwp30Jkq9UFnoj+EfMFJv+XxjcvHE/D573LRomA568WhvXoI2cUiwhZFvqfbLMVg==",
+    "Microsoft.Owin.Security/4.1.1": {
+      "sha512": "TdqTlOBgh2JKdG0uolwQJeAjW/TLomDN+dGh79Tpv5haY/+u+B2I7X+Syf7GBht70DC0yNMonbQv1eQit7NkVA==",
       "type": "package",
-      "path": "microsoft.owin.security/3.0.1",
+      "path": "microsoft.owin.security/4.1.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/net45/Microsoft.Owin.Security.XML",
         "lib/net45/Microsoft.Owin.Security.dll",
-        "microsoft.owin.security.3.0.1.nupkg.sha512",
+        "microsoft.owin.security.4.1.1.nupkg.sha512",
         "microsoft.owin.security.nuspec"
+      ]
+    },
+    "Microsoft.Owin.Security.OAuth/4.1.1": {
+      "sha512": "4Z/36Dz47P6Xw10yjy+z7Oc1tXV8/iSBdz3QAEnONuw+8Y3aoP6rndsaN8rU/ofXLrF6g25qEiVCiADsrlKJgA==",
+      "type": "package",
+      "path": "microsoft.owin.security.oauth/4.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Microsoft.Owin.Security.OAuth.XML",
+        "lib/net45/Microsoft.Owin.Security.OAuth.dll",
+        "microsoft.owin.security.oauth.4.1.1.nupkg.sha512",
+        "microsoft.owin.security.oauth.nuspec"
       ]
     },
     "Newtonsoft.Json/12.0.3": {
@@ -1486,18 +1501,6 @@
         "lib/net40/Owin.dll",
         "owin.1.0.0.nupkg.sha512",
         "owin.nuspec"
-      ]
-    },
-    "Owin.Security.Providers.Spotify/2.26.0": {
-      "sha512": "FtUX0txiasNRdOvJE4mk6HHKZ6LWBMQ6TCA+CNqH+JmrKe5itUHhJZGpF7G0XqqZQ+lIB4GPWT7I96P/in1KQA==",
-      "type": "package",
-      "path": "owin.security.providers.spotify/2.26.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net45/Owin.Security.Providers.Spotify.dll",
-        "owin.security.providers.spotify.2.26.0.nupkg.sha512",
-        "owin.security.providers.spotify.nuspec"
       ]
     },
     "SpotifyAPI.Web/6.0.0": {
@@ -1909,7 +1912,7 @@
       "HotChocolate >= 11.0.8",
       "HotChocolate.AspNetCore >= 11.0.8",
       "HotChocolate.AspNetCore.Playground >= 10.5.5",
-      "Owin.Security.Providers.Spotify >= 2.26.0",
+      "Microsoft.Owin.Security.OAuth >= 4.1.1",
       "SpotifyAPI.Web >= 6.0.0",
       "SpotifyAPI.Web.Auth >= 6.0.0"
     ]
@@ -1972,9 +1975,9 @@
             "target": "Package",
             "version": "[10.5.5, )"
           },
-          "Owin.Security.Providers.Spotify": {
+          "Microsoft.Owin.Security.OAuth": {
             "target": "Package",
-            "version": "[2.26.0, )"
+            "version": "[4.1.1, )"
           },
           "SpotifyAPI.Web": {
             "target": "Package",
@@ -2012,7 +2015,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'Microsoft.Owin 3.0.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "message": "Package 'Microsoft.Owin 4.1.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
       "libraryId": "Microsoft.Owin",
       "targetGraphs": [
         ".NETCoreApp,Version=v3.1"
@@ -2022,8 +2025,18 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'Microsoft.Owin.Security 3.0.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "message": "Package 'Microsoft.Owin.Security 4.1.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
       "libraryId": "Microsoft.Owin.Security",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Owin.Security.OAuth 4.1.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.Owin.Security.OAuth",
       "targetGraphs": [
         ".NETCoreApp,Version=v3.1"
       ]
@@ -2034,16 +2047,6 @@
       "warningLevel": 1,
       "message": "Package 'Owin 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
       "libraryId": "Owin",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Owin.Security.Providers.Spotify 2.26.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
-      "libraryId": "Owin.Security.Providers.Spotify",
       "targetGraphs": [
         ".NETCoreApp,Version=v3.1"
       ]

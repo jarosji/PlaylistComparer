@@ -14,7 +14,7 @@ using PlaylistComparer.Api;
 using PlaylistComparer.Api.Schema;
 using PlaylistComparer.Schema;
 using SpotifyAPI.Web;
-using Owin.Security.Providers.Spotify;
+using Microsoft.Owin.Security.OAuth;
 using SpotifyAPI.Web.Auth;
 using System;
 using System.Collections.Generic;
@@ -22,6 +22,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using static SpotifyAPI.Web.Scopes;
 using PlaylistComparer.Api.Utils;
+using Microsoft.AspNetCore.Authentication.OAuth;
 
 namespace PlaylistComparer
 {
@@ -44,8 +45,11 @@ namespace PlaylistComparer
                 options.AddPolicy(name: "basicOrigins",
                                   builder =>
                                   {
-                                      builder.WithOrigins("http://localhost:3000").AllowAnyHeader()
-                                      .WithMethods("PUT", "POST", "PATCH", "GET", "DELETE", "OPTIONS").AllowCredentials();
+                                      builder
+                                      .WithOrigins("http://localhost:3000")
+                                      .AllowAnyHeader()
+                                      .WithMethods("PUT", "POST", "PATCH", "GET", "DELETE", "OPTIONS")
+                                      .AllowCredentials();
                                   });
             });
 
@@ -64,15 +68,15 @@ namespace PlaylistComparer
             //        //policy.RequireAuthenticatedUser();
             //    });
             //});
-            services
-              .AddAuthentication(options =>
-              {
-                  options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-              })
-              .AddCookie(options =>
-              {
-                  
-              });
+            //services
+            //  .AddAuthentication(options =>
+            //  {
+            //      options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            //  })
+            //  .AddCookie(options =>
+            //  {
+
+            //  });
 
             services.AddGraphQLServer()
                 .AddQueryType<Query>()

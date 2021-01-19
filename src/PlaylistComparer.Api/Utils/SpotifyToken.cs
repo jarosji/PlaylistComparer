@@ -14,7 +14,7 @@ namespace PlaylistComparer.Api.Utils
         {
             _httpContextAccessor = httpContextAccessor;
         }
-        public async Task RefreshToken()
+        public async Task<String> RefreshToken()
         {
             var response = await new OAuthClient().RequestToken(
                 new AuthorizationCodeRefreshRequest("c8bc902470624f89bb3a70aab0fedc0b", "9f96b0c0d4d0425cb5166bccd6189e30", _httpContextAccessor.HttpContext.Request.Cookies["spotifyRefreshToken"])
@@ -22,6 +22,7 @@ namespace PlaylistComparer.Api.Utils
             CookieOptions option = new CookieOptions();
             option.Expires = DateTime.Now.AddSeconds(response.ExpiresIn);
             _httpContextAccessor.HttpContext.Response.Cookies.Append("spotify", response.AccessToken, option);
+            return response.AccessToken;
         }
     }
 }

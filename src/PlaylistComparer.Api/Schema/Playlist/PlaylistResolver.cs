@@ -12,13 +12,11 @@ namespace PlaylistComparer.Api.Schema.Playlist
     {
         private readonly SpotifyClientBuilder SpotifyClientBuilder;
         private readonly SpotifyParser SpotifyParser;
-        private readonly SpotifyToken SpotifyToken;
 
-        public PlaylistResolver(SpotifyClientBuilder spotifyClientBuilder, SpotifyParser spotifyParser, SpotifyToken spotifyToken)
+        public PlaylistResolver(SpotifyClientBuilder spotifyClientBuilder, SpotifyParser spotifyParser)
         {
             SpotifyClientBuilder = spotifyClientBuilder;
             SpotifyParser = spotifyParser;
-            SpotifyToken = spotifyToken;
         }
         public async Task<PlaylistModel> Playlist(String id)
         {
@@ -70,16 +68,7 @@ namespace PlaylistComparer.Api.Schema.Playlist
             var spotify = await SpotifyClientBuilder.BuildClient();
             PlaylistChangeDetailsRequest change = new PlaylistChangeDetailsRequest();
             change.Name = name;
-            try
-            {
-                var a = await spotify.Playlists.ChangeDetails(id, change);
-                await SpotifyToken.RefreshToken();
-                //await spotify.Playlists.ChangeDetails(id, change);
-            } catch(Exception e)
-            {
-                await SpotifyToken.RefreshToken();
-                await spotify.Playlists.ChangeDetails(id, change);
-            }
+            await spotify.Playlists.ChangeDetails(id, change);
             return true;
         }
         public async Task<PlaylistModel> RemoveDuplicates(String id)

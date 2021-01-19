@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
+using PlaylistComparer.Api.Utils;
 using SpotifyAPI.Web;
 using System;
 using System.Collections.Generic;
@@ -12,11 +13,13 @@ namespace PlaylistComparer.Api
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly SpotifyClientConfig _spotifyClientConfig;
+        private readonly SpotifyToken SpotifyToken;
 
-        public SpotifyClientBuilder(IHttpContextAccessor httpContextAccessor, SpotifyClientConfig spotifyClientConfig)
+        public SpotifyClientBuilder(IHttpContextAccessor httpContextAccessor, SpotifyClientConfig spotifyClientConfig, SpotifyToken spotifyToken)
         {
             _httpContextAccessor = httpContextAccessor;
             _spotifyClientConfig = spotifyClientConfig;
+            SpotifyToken = spotifyToken;
         }
 
         public async Task<SpotifyClient> BuildClient()
@@ -26,7 +29,8 @@ namespace PlaylistComparer.Api
             var token = _httpContextAccessor.HttpContext.Request.Cookies["spotify"];
             if (token == null)
             {
-                return new SpotifyClient(_spotifyClientConfig);
+                if (_httpContextAccessor.HttpContext.Request.Cookies["spotifyRefreshToken"] != null) token = await SpotifyToken.RefreshToken();
+                else return new SpotifyClient(_spotifyClientConfig);
             }
             return new SpotifyClient(_spotifyClientConfig.WithToken(token));
         }
