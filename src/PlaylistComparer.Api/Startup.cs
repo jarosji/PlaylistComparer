@@ -61,37 +61,41 @@ namespace PlaylistComparer
             services.AddSingleton<SpotifyParser>();
             services.AddSingleton<SpotifyToken>();
 
-
-
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                 options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = "Spotify";
             })
-                .AddCookie();
-                //.AddOAuth("Spotify", options =>
-                //{
-                //    options.ClientId = "c8bc902470624f89bb3a70aab0fedc0b";
-                //    options.ClientSecret = "9f96b0c0d4d0425cb5166bccd6189e30";
-                //    options.CallbackPath = new PathString("/graphql");
+                .AddCookie()
+                .AddOAuth("Spotify", options =>
+                {
+                    options.ClientId = "c8bc902470624f89bb3a70aab0fedc0b";
+                    options.ClientSecret = "9f96b0c0d4d0425cb5166bccd6189e30";
+                    options.CallbackPath = new PathString("/graphql");
 
-                //    options.AuthorizationEndpoint = "https://accounts.spotify.com/authorize";
-                //    options.TokenEndpoint = "https://accounts.spotify.com/api/token";
-                //    //options.UserInformationEndpoint = "https://api.github.com/user";
+                    options.AuthorizationEndpoint = "https://accounts.spotify.com/authorize";
+                    options.TokenEndpoint = "https://accounts.spotify.com/api/token";
+                    //options.UserInformationEndpoint = "https://api.github.com/user";
 
-                //    options.SaveTokens = true;
+                    options.SaveTokens = true;
 
-                //    // some code omitted for brevity
+                    var scopes = new List<string>
+                    {
+                        Scopes.PlaylistModifyPublic
+                    };
+                    options.Scope.Add(string.Join(",", scopes));
 
-                //    options.Events = new OAuthEvents
-                //    {
-                //        OnCreatingTicket = async context =>
-                //        {
-                //            // some code omitted for brevity
-                //        }
-                //    };
-                //});
+                    // some code omitted for brevity
+
+                    options.Events = new OAuthEvents
+                    {
+                        OnCreatingTicket = async context =>
+                        {
+                            // some code omitted for brevity
+                        }
+                    };
+                });
 
             services.AddGraphQLServer()
                 .AddQueryType<Query>()
@@ -106,7 +110,7 @@ namespace PlaylistComparer
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseCookiePolicy();
             app.UseCors("basicOrigins");
 
             app.UseWebSockets();

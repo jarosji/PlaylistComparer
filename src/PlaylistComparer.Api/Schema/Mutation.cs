@@ -15,7 +15,7 @@ namespace PlaylistComparer.Api.Schema
         {
             descriptor.Name("RootMutation");
 
-            descriptor.Field<UserResolver>(x => x.LoginSpotify(default)).Type<BooleanType>().Description("Get code from localhost/:port/test/");
+            descriptor.Field<UserResolver>(x => x.LoginSpotify(default)).Type<BooleanType>().Description("Get code from localhost/:port/auth/");
 
             descriptor.Field<PlaylistResolver>(x => x.RenamePlaylist(default, default)).Type<BooleanType>();
             descriptor.Field<PlaylistResolver>(x => x.RemoveDuplicates(default)).Type<PlaylistType>();

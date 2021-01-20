@@ -7,10 +7,14 @@ namespace PlaylistComparer.Api.Utils
 {
     public class SpotifyParser
     {
-        public String parse(String uri)
+        public String Parse(String uri)
         {
-            String[] id = uri.Split("playlist/");
-            return id.Last();
+            if (!String.IsNullOrEmpty(uri))
+            {
+                String[] id = uri.Split("playlist/");
+                return id.Last();
+            }
+            return "";
         }
     }
 }

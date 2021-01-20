@@ -28,5 +28,6 @@ namespace PlaylistComparer.Api.Models
         public int NumberOfSongs { get; set; }
         public int PlayTime { get; set; }
         public int Duplicates { get; set; }
+        public List<FullTrack> DuplicateTracks { get; set; }
     }
 }

@@ -24,7 +24,7 @@ namespace PlaylistComparer.Schema.Track
             List<FullTrack> tracks = new List<FullTrack>();
             foreach (String id in ids)
             {
-                String parsedId = SpotifyParser.parse(id);
+                String parsedId = SpotifyParser.Parse(id);
                 FullPlaylist playlist = await spotify.Playlists.Get(parsedId);
                 foreach (PlaylistTrack<IPlayableItem> item in playlist.Tracks.Items)
                 {

@@ -20,7 +20,7 @@ namespace PlaylistComparer.Api.Schema.Playlist
         }
         public async Task<PlaylistModel> Playlist(String id)
         {
-            id = SpotifyParser.parse(id);
+            id = SpotifyParser.Parse(id);
             var spotify = await SpotifyClientBuilder.BuildClient();
 
             PlaylistModel playlist = new PlaylistModel(spotify.Playlists.Get(id).Result);
@@ -34,7 +34,9 @@ namespace PlaylistComparer.Api.Schema.Playlist
                     playlist.NumberOfSongs += 1;
                 }
             }
-            playlist.Duplicates = tracks.GroupBy(x => x.Id).Where(x => x.Count() > 1).Sum(x => 1);
+            var duplicates = tracks.GroupBy(x => x.Id).Where(x => x.Count() > 1);
+            playlist.Duplicates = duplicates.Sum(x => 1);
+            playlist.DuplicateTracks = duplicates.Select(x => x.First()).ToList();
             return playlist;
         }
         public async Task<List<PlaylistModel>> Playlists(List<String> ids)
@@ -43,7 +45,7 @@ namespace PlaylistComparer.Api.Schema.Playlist
             List<PlaylistModel> playlists = new List<PlaylistModel>();
             foreach (String id in ids)
             {
-                String parsedId = SpotifyParser.parse(id);
+                String parsedId = SpotifyParser.Parse(id);
                 playlists.Add(new PlaylistModel(spotify.Playlists.Get(parsedId).Result));
             }
             foreach (PlaylistModel playlist in playlists)
@@ -58,13 +60,15 @@ namespace PlaylistComparer.Api.Schema.Playlist
                         playlist.NumberOfSongs += 1;
                     }
                 }
-                playlist.Duplicates = tracks.GroupBy(x => x.Id).Where(x => x.Count() > 1).Sum(x => 1);
+                var duplicates = tracks.GroupBy(x => x.Id).Where(x => x.Count() > 1);
+                playlist.Duplicates = duplicates.Sum(x => 1);
+                playlist.DuplicateTracks = duplicates.Select(x => x.First()).ToList();
             }
             return playlists;
         }
         public async Task<bool> RenamePlaylist(String id, String name)
         {
-            id = SpotifyParser.parse(id);
+            id = SpotifyParser.Parse(id);
             var spotify = await SpotifyClientBuilder.BuildClient();
             PlaylistChangeDetailsRequest change = new PlaylistChangeDetailsRequest();
             change.Name = name;
@@ -73,7 +77,7 @@ namespace PlaylistComparer.Api.Schema.Playlist
         }
         public async Task<PlaylistModel> RemoveDuplicates(String id)
         {
-            id = SpotifyParser.parse(id);
+            id = SpotifyParser.Parse(id);
             var spotify = await SpotifyClientBuilder.BuildClient();
             PlaylistModel playlist = new PlaylistModel(spotify.Playlists.Get(id).Result);
             List<FullTrack> tracks = new List<FullTrack>();
