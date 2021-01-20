@@ -27,7 +27,7 @@
           "HotChocolate": "11.0.8",
           "HotChocolate.AspNetCore": "11.0.8",
           "HotChocolate.AspNetCore.Playground": "10.5.5",
-          "Owin.Security.Providers.Spotify": "2.26.0",
+          "Microsoft.Owin.Security.OAuth": "4.1.1",
           "SpotifyAPI.Web": "6.0.0",
           "SpotifyAPI.Web.Auth": "6.0.0",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
@@ -808,33 +808,50 @@
           "System.Buffers": "4.5.0"
         }
       },
-      "Microsoft.Owin/3.0.1": {
+      "Microsoft.Owin/4.1.1": {
         "dependencies": {
           "Owin": "1.0.0"
         },
         "runtime": {
           "lib/net45/Microsoft.Owin.dll": {
-            "assemblyVersion": "3.0.1.0",
-            "fileVersion": "3.0.40213.64"
+            "assemblyVersion": "4.1.1.0",
+            "fileVersion": "4.1.25372.136"
           }
         },
         "compile": {
           "lib/net45/Microsoft.Owin.dll": {}
         }
       },
-      "Microsoft.Owin.Security/3.0.1": {
+      "Microsoft.Owin.Security/4.1.1": {
         "dependencies": {
-          "Microsoft.Owin": "3.0.1",
+          "Microsoft.Owin": "4.1.1",
           "Owin": "1.0.0"
         },
         "runtime": {
           "lib/net45/Microsoft.Owin.Security.dll": {
-            "assemblyVersion": "3.0.1.0",
-            "fileVersion": "3.0.40213.64"
+            "assemblyVersion": "4.1.1.0",
+            "fileVersion": "4.1.25372.136"
           }
         },
         "compile": {
           "lib/net45/Microsoft.Owin.Security.dll": {}
+        }
+      },
+      "Microsoft.Owin.Security.OAuth/4.1.1": {
+        "dependencies": {
+          "Microsoft.Owin": "4.1.1",
+          "Microsoft.Owin.Security": "4.1.1",
+          "Newtonsoft.Json": "12.0.3",
+          "Owin": "1.0.0"
+        },
+        "runtime": {
+          "lib/net45/Microsoft.Owin.Security.OAuth.dll": {
+            "assemblyVersion": "4.1.1.0",
+            "fileVersion": "4.1.25372.136"
+          }
+        },
+        "compile": {
+          "lib/net45/Microsoft.Owin.Security.OAuth.dll": {}
         }
       },
       "Newtonsoft.Json/12.0.3": {
@@ -857,21 +874,6 @@
         },
         "compile": {
           "lib/net40/Owin.dll": {}
-        }
-      },
-      "Owin.Security.Providers.Spotify/2.26.0": {
-        "dependencies": {
-          "Microsoft.Owin.Security": "3.0.1",
-          "Newtonsoft.Json": "12.0.3"
-        },
-        "runtime": {
-          "lib/net45/Owin.Security.Providers.Spotify.dll": {
-            "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.0.0.0"
-          }
-        },
-        "compile": {
-          "lib/net45/Owin.Security.Providers.Spotify.dll": {}
         }
       },
       "SpotifyAPI.Web/6.0.0": {
@@ -2953,19 +2955,26 @@
       "path": "microsoft.net.http.headers/2.1.1",
       "hashPath": "microsoft.net.http.headers.2.1.1.nupkg.sha512"
     },
-    "Microsoft.Owin/3.0.1": {
+    "Microsoft.Owin/4.1.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-64yZsGN9uRnXNVAyAT4F6KWmdDUJ6yX4uqzxKTdGANKH1oMt0IKZ7THRRa3mXIOo8iSu4tq/DCBUycUY9pXZzw==",
-      "path": "microsoft.owin/3.0.1",
-      "hashPath": "microsoft.owin.3.0.1.nupkg.sha512"
+      "sha512": "sha512-KtjkRz4COQRqrwOBMf+XKW1ZsdiFMqipbmM0khhNJIx6U9VRprbwRGdSq1++PHlZrIwHMmwRHC0nILNSHGkcaA==",
+      "path": "microsoft.owin/4.1.1",
+      "hashPath": "microsoft.owin.4.1.1.nupkg.sha512"
     },
-    "Microsoft.Owin.Security/3.0.1": {
+    "Microsoft.Owin.Security/4.1.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-LPoUxaTKzmjs97wDCTtBIoRwp30Jkq9UFnoj+EfMFJv+XxjcvHE/D573LRomA568WhvXoI2cUiwhZFvqfbLMVg==",
-      "path": "microsoft.owin.security/3.0.1",
-      "hashPath": "microsoft.owin.security.3.0.1.nupkg.sha512"
+      "sha512": "sha512-TdqTlOBgh2JKdG0uolwQJeAjW/TLomDN+dGh79Tpv5haY/+u+B2I7X+Syf7GBht70DC0yNMonbQv1eQit7NkVA==",
+      "path": "microsoft.owin.security/4.1.1",
+      "hashPath": "microsoft.owin.security.4.1.1.nupkg.sha512"
+    },
+    "Microsoft.Owin.Security.OAuth/4.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4Z/36Dz47P6Xw10yjy+z7Oc1tXV8/iSBdz3QAEnONuw+8Y3aoP6rndsaN8rU/ofXLrF6g25qEiVCiADsrlKJgA==",
+      "path": "microsoft.owin.security.oauth/4.1.1",
+      "hashPath": "microsoft.owin.security.oauth.4.1.1.nupkg.sha512"
     },
     "Newtonsoft.Json/12.0.3": {
       "type": "package",
@@ -2980,13 +2989,6 @@
       "sha512": "sha512-OseTFniKmyp76mEzOBwIKGBRS5eMoYNkMKaMXOpxx9jv88+b6mh1rSaw43vjBOItNhaLFG3d0a20PfHyibH5sw==",
       "path": "owin/1.0.0",
       "hashPath": "owin.1.0.0.nupkg.sha512"
-    },
-    "Owin.Security.Providers.Spotify/2.26.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-FtUX0txiasNRdOvJE4mk6HHKZ6LWBMQ6TCA+CNqH+JmrKe5itUHhJZGpF7G0XqqZQ+lIB4GPWT7I96P/in1KQA==",
-      "path": "owin.security.providers.spotify/2.26.0",
-      "hashPath": "owin.security.providers.spotify.2.26.0.nupkg.sha512"
     },
     "SpotifyAPI.Web/6.0.0": {
       "type": "package",

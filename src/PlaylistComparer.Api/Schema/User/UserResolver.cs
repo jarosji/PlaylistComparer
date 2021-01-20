@@ -27,6 +27,7 @@ namespace PlaylistComparer.Api.Schema.User
             option.HttpOnly = true;
             option.SameSite = SameSiteMode.None;
             option.Secure = true;
+            //option.Domain = "http://localhost:3000";
 
             _httpContextAccessor.HttpContext.Response.Cookies.Append("spotify", response.AccessToken, option);
             _httpContextAccessor.HttpContext.Response.Cookies.Append("spotifyRefreshToken", response.RefreshToken);

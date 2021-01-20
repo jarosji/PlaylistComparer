@@ -141,4 +141,4 @@ C:\Users\Jirka\source\repos\PlaylistComparer\src\PlaylistComparer.Api\bin\Debug\
 C:\Users\Jirka\source\repos\PlaylistComparer\src\PlaylistComparer.Api\bin\Debug\netcoreapp3.1\Microsoft.Owin.dll
 C:\Users\Jirka\source\repos\PlaylistComparer\src\PlaylistComparer.Api\bin\Debug\netcoreapp3.1\Microsoft.Owin.Security.dll
 C:\Users\Jirka\source\repos\PlaylistComparer\src\PlaylistComparer.Api\bin\Debug\netcoreapp3.1\Owin.dll
-C:\Users\Jirka\source\repos\PlaylistComparer\src\PlaylistComparer.Api\bin\Debug\netcoreapp3.1\Owin.Security.Providers.Spotify.dll
+C:\Users\Jirka\source\repos\PlaylistComparer\src\PlaylistComparer.Api\bin\Debug\netcoreapp3.1\Microsoft.Owin.Security.OAuth.dll

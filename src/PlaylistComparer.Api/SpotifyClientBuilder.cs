@@ -26,7 +26,7 @@ namespace PlaylistComparer.Api
         {
             //var token = await _httpContextAccessor.HttpContext.GetTokenAsync("Spotify", "access_token");)
             
-            var token = _httpContextAccessor.HttpContext.Request.Cookies["spotify"];
+            String token = _httpContextAccessor.HttpContext.Request.Cookies["spotify"]; 
             if (token == null)
             {
                 if (_httpContextAccessor.HttpContext.Request.Cookies["spotifyRefreshToken"] != null) token = await SpotifyToken.RefreshToken();
