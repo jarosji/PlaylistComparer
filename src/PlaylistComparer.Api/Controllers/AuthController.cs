@@ -14,7 +14,7 @@ namespace PlaylistComparer.Api.Controllers
         public IActionResult Get(String url = "/")
         {
             //var loginRequest = new LoginRequest(
-            //  new Uri("https://localhost:44329/graphql"),
+            //  new Uri("http://localhost:3000"),
             //  "c8bc902470624f89bb3a70aab0fedc0b",
             //  LoginRequest.ResponseType.Code
             //)

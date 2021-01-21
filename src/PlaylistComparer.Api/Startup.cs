@@ -36,7 +36,6 @@ namespace PlaylistComparer
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
@@ -47,7 +46,7 @@ namespace PlaylistComparer
                                   builder =>
                                   {
                                       builder
-                                      .WithOrigins("http://localhost:3000")
+                                      .WithOrigins("https://localhost:3000")
                                       .AllowAnyHeader()
                                       .WithMethods("PUT", "POST", "PATCH", "GET", "DELETE", "OPTIONS")
                                       .AllowCredentials();
@@ -56,6 +55,7 @@ namespace PlaylistComparer
             services.AddSingleton<HttpClient>();
             //services.AddHttpContextAccessor();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             services.AddSingleton(SpotifyClientConfig.CreateDefault().WithAuthenticator(new ClientCredentialsAuthenticator("c8bc902470624f89bb3a70aab0fedc0b", "9f96b0c0d4d0425cb5166bccd6189e30")));
             services.AddTransient<SpotifyClientBuilder>();
             services.AddSingleton<SpotifyParser>();
@@ -76,7 +76,6 @@ namespace PlaylistComparer
 
                     options.AuthorizationEndpoint = "https://accounts.spotify.com/authorize";
                     options.TokenEndpoint = "https://accounts.spotify.com/api/token";
-                    //options.UserInformationEndpoint = "https://api.github.com/user";
 
                     options.SaveTokens = true;
 
@@ -85,16 +84,6 @@ namespace PlaylistComparer
                         Scopes.PlaylistModifyPublic
                     };
                     options.Scope.Add(string.Join(",", scopes));
-
-                    // some code omitted for brevity
-
-                    options.Events = new OAuthEvents
-                    {
-                        OnCreatingTicket = async context =>
-                        {
-                            // some code omitted for brevity
-                        }
-                    };
                 });
 
             services.AddGraphQLServer()
@@ -103,7 +92,6 @@ namespace PlaylistComparer
 
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -121,7 +109,6 @@ namespace PlaylistComparer
 
             app.UseEndpoints(endpoints =>
             {
-                // We will be using the new routing API to host our GraphQL middleware.
                 endpoints.MapGraphQL();
                 endpoints.MapControllers();
                 endpoints.MapGet("/", context =>

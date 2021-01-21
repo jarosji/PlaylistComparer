@@ -24,15 +24,23 @@ namespace PlaylistComparer.Api
 
         public async Task<SpotifyClient> BuildClient()
         {
-            var accessToken = await _httpContextAccessor.HttpContext.GetTokenAsync("Spotify", "access_token");
+            String accessToken = await _httpContextAccessor.HttpContext.GetTokenAsync("Spotify", "access_token");
             var refreshToken = await _httpContextAccessor.HttpContext.GetTokenAsync("Spotify", "refresh_token");
 
-            if (accessToken == null)
+            if (accessToken != null && refreshToken != null)
             {
-                if (refreshToken != null) accessToken = await SpotifyToken.RefreshToken(refreshToken);
-                else return new SpotifyClient(_spotifyClientConfig);
+                var expires = await _httpContextAccessor.HttpContext.GetTokenAsync("expires_at");
+                var expireDate = DateTime.Parse(expires);
+                var nowDate = DateTime.UtcNow;
+                var result = DateTime.Compare(expireDate, nowDate);
+
+                if (result<=0)
+                {
+                    accessToken = await SpotifyToken.RefreshToken(refreshToken);
+                }
+                return new SpotifyClient(_spotifyClientConfig.WithToken(accessToken));
             }
-            return new SpotifyClient(_spotifyClientConfig.WithToken(accessToken));
+            return new SpotifyClient(_spotifyClientConfig);
         }
     }
 }
