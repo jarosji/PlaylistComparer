@@ -23,6 +23,8 @@ namespace PlaylistComparer.Spotify.Services
             id = SpotifyParser.Parse(id);
 
             PlaylistModel playlist = new PlaylistModel(await spotify.Playlists.Get(id));
+            List<PlaylistTrack<IPlayableItem>> allPages = (List<PlaylistTrack<IPlayableItem>>)await spotify.PaginateAll(playlist.Tracks);
+            playlist.Tracks.Items = allPages;
 
             return LoadPlaylist(playlist);
         }
@@ -33,7 +35,11 @@ namespace PlaylistComparer.Spotify.Services
             foreach (String id in ids)
             {
                 String parsedId = SpotifyParser.Parse(id);
+
                 PlaylistModel playlist = new PlaylistModel(await spotify.Playlists.Get(parsedId));
+                List<PlaylistTrack<IPlayableItem>> allPages = (List<PlaylistTrack<IPlayableItem>>)await spotify.PaginateAll(playlist.Tracks);
+                playlist.Tracks.Items = allPages;
+
                 playlists.Add(LoadPlaylist(playlist));
             }
             return playlists;
@@ -41,8 +47,9 @@ namespace PlaylistComparer.Spotify.Services
 
         public async Task<PlaylistModel> RemoveDuplicatesAsync(String id)
         {
-            id = SpotifyParser.Parse(id);
             var spotify = await SpotifyClientBuilder.BuildClient();
+            id = SpotifyParser.Parse(id);
+
             PlaylistModel playlist = new PlaylistModel(spotify.Playlists.Get(id).Result);
             List<FullTrack> tracks = new List<FullTrack>();
             List<int> positions = new List<int>();

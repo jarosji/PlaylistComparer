@@ -25,6 +25,9 @@ namespace PlaylistComparer.Spotify.Services
             {
                 String parsedId = SpotifyParser.Parse(id);
                 FullPlaylist playlist = await spotify.Playlists.Get(parsedId);
+                List<PlaylistTrack<IPlayableItem>> allPages = (List<PlaylistTrack<IPlayableItem>>)await spotify.PaginateAll(playlist.Tracks);
+                playlist.Tracks.Items = allPages;
+
                 foreach (PlaylistTrack<IPlayableItem> item in playlist.Tracks.Items)
                 {
                     if (item.Track is FullTrack track)
