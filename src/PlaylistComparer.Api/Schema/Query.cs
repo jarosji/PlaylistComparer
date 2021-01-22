@@ -1,5 +1,5 @@
 ﻿using HotChocolate.Types;
-using PlaylistComparer.Api.Schema.Playlist;
+using PlaylistComparer.Spotify.Schema.Playlist;
 using PlaylistComparer.Schema.Track;
 using SpotifyAPI.Web;
 using System;

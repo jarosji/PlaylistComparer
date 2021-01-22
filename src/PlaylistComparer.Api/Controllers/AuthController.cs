@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PlaylistComparer.Api.Controllers
+namespace PlaylistComparer.Spotify.Controllers
 {
     public class AuthController : Controller
     {

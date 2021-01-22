@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PlaylistComparer.Api.Models
+namespace PlaylistComparer.Spotify.Models
 {
     public class PlaylistModel : FullPlaylist
     {
@@ -25,7 +25,6 @@ namespace PlaylistComparer.Api.Models
             Type = playlist.Type;
             Uri = playlist.Uri;
         }
-        public int NumberOfSongs { get; set; }
         public int PlayTime { get; set; }
         public int Duplicates { get; set; }
         public List<FullTrack> DuplicateTracks { get; set; }

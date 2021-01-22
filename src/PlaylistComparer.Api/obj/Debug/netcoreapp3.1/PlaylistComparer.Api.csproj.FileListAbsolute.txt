@@ -138,7 +138,9 @@ C:\Users\Jirka\Source\Repos\PlaylistComparer\src\PlaylistComparer.Api\obj\Debug\
 C:\Users\Jirka\source\repos\PlaylistComparer\src\PlaylistComparer.Api\bin\Debug\netcoreapp3.1\EmbedIO.dll
 C:\Users\Jirka\source\repos\PlaylistComparer\src\PlaylistComparer.Api\bin\Debug\netcoreapp3.1\SpotifyAPI.Web.Auth.dll
 C:\Users\Jirka\source\repos\PlaylistComparer\src\PlaylistComparer.Api\bin\Debug\netcoreapp3.1\Swan.Lite.dll
+C:\Users\Jirka\source\repos\PlaylistComparer\src\PlaylistComparer.Api\bin\Debug\netcoreapp3.1\PlaylistComparer.Spotify.dll
+C:\Users\Jirka\source\repos\PlaylistComparer\src\PlaylistComparer.Api\bin\Debug\netcoreapp3.1\PlaylistComparer.Spotify.pdb
 C:\Users\Jirka\source\repos\PlaylistComparer\src\PlaylistComparer.Api\bin\Debug\netcoreapp3.1\Microsoft.Owin.dll
 C:\Users\Jirka\source\repos\PlaylistComparer\src\PlaylistComparer.Api\bin\Debug\netcoreapp3.1\Microsoft.Owin.Security.dll
-C:\Users\Jirka\source\repos\PlaylistComparer\src\PlaylistComparer.Api\bin\Debug\netcoreapp3.1\Owin.dll
 C:\Users\Jirka\source\repos\PlaylistComparer\src\PlaylistComparer.Api\bin\Debug\netcoreapp3.1\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Jirka\source\repos\PlaylistComparer\src\PlaylistComparer.Api\bin\Debug\netcoreapp3.1\Owin.dll

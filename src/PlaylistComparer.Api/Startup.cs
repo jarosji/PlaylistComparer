@@ -10,19 +10,17 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Http;
-using PlaylistComparer.Api;
-using PlaylistComparer.Api.Schema;
+using PlaylistComparer.Spotify;
+using PlaylistComparer.Spotify.Schema;
 using PlaylistComparer.Schema;
 using SpotifyAPI.Web;
-using Microsoft.Owin.Security.OAuth;
 using SpotifyAPI.Web.Auth;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using static SpotifyAPI.Web.Scopes;
-using PlaylistComparer.Api.Utils;
-using Microsoft.AspNetCore.Authentication.OAuth;
+using PlaylistComparer.Spotify.Utils;
 using System.Net.Http;
 
 namespace PlaylistComparer
@@ -52,14 +50,6 @@ namespace PlaylistComparer
                                       .AllowCredentials();
                                   });
             });
-            services.AddSingleton<HttpClient>();
-            //services.AddHttpContextAccessor();
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
-            services.AddSingleton(SpotifyClientConfig.CreateDefault().WithAuthenticator(new ClientCredentialsAuthenticator("c8bc902470624f89bb3a70aab0fedc0b", "9f96b0c0d4d0425cb5166bccd6189e30")));
-            services.AddTransient<SpotifyClientBuilder>();
-            services.AddSingleton<SpotifyParser>();
-            services.AddSingleton<SpotifyToken>();
 
             services.AddAuthentication(options =>
             {
@@ -85,6 +75,8 @@ namespace PlaylistComparer
                     };
                     options.Scope.Add(string.Join(",", scopes));
                 });
+
+            services.AddSpotifyServices();
 
             services.AddGraphQLServer()
                 .AddQueryType<Query>()
