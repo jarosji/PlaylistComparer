@@ -10,8 +10,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Http;
-using PlaylistComparer.Spotify;
-using PlaylistComparer.Spotify.Schema;
+using PlaylistComparer.Api;
+using PlaylistComparer.Api.Schema;
 using PlaylistComparer.Schema;
 using SpotifyAPI.Web;
 using SpotifyAPI.Web.Auth;
@@ -20,8 +20,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using static SpotifyAPI.Web.Scopes;
-using PlaylistComparer.Spotify.Utils;
 using System.Net.Http;
+using PlaylistComparer.Api.Factories;
+using PlaylistComparer.StreamingServices;
+using PlaylistComparer.Api.Schema.Playlist;
+using PlaylistComparer.Api.Schema.Track;
 
 namespace PlaylistComparer
 {
@@ -60,8 +63,8 @@ namespace PlaylistComparer
                 .AddCookie()
                 .AddOAuth("Spotify", options =>
                 {
-                    options.ClientId = "c8bc902470624f89bb3a70aab0fedc0b";
-                    options.ClientSecret = "9f96b0c0d4d0425cb5166bccd6189e30";
+                    options.ClientId = Configuration["Spotify:ClientId"];
+                    options.ClientSecret = Configuration["Spotify:ClientSecret"];
                     options.CallbackPath = new PathString("/graphql");
 
                     options.AuthorizationEndpoint = "https://accounts.spotify.com/authorize";
@@ -71,17 +74,27 @@ namespace PlaylistComparer
 
                     var scopes = new List<string>
                     {
-                        Scopes.PlaylistModifyPublic
+                        Scopes.PlaylistModifyPublic, Scopes.UserTopRead
                     };
                     options.Scope.Add(string.Join(",", scopes));
                 });
 
+            
+
             services.AddSpotifyServices();
 
             services.AddGraphQLServer()
-                .AddQueryType<Query>()
-                .AddMutationType<Mutation>();
+                .AddQueryType(x => x.Name("RootQuery"))
+                    .AddTypeExtension<PlaylistQueries>()
+                    .AddTypeExtension<TrackQueries>()
+                .AddMutationType(x => x.Name("RootMutation"))
+                    .AddTypeExtension<PlaylistMutations>()
 
+                .AddType<PlaylistType>()
+
+                .AddType<PlaylistInputType>();
+
+            services.AddTransient<StreamingServicesFactory>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -105,7 +118,7 @@ namespace PlaylistComparer
                 endpoints.MapControllers();
                 endpoints.MapGet("/", context =>
                 {
-                    context.Response.Redirect("/graphql");
+                    context.Response.Redirect("/graphql/");
                     return Task.CompletedTask;
                 });
             });

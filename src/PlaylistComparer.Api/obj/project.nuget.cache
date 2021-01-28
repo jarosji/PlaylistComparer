@@ -1,10 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "r+d40NJl2QuE8OqgJefDXqSzaOYnuM+VdsJjJl4O1K9DQXIPAYHe/hGQut08PEzd+bKqHLu3LHHd1aIhvCgk4w==",
+  "dgSpecHash": "FgpSHvzZ5beGV5zuR2Y3Af1+p0VbowhrVVBaUQspQxMeW24HAAKN+/MyXJ+JSeCx89pD5m9CDMvYTRQk9ACH0g==",
   "success": true,
   "projectFilePath": "C:\\Users\\Jirka\\source\\repos\\PlaylistComparer\\src\\PlaylistComparer.Api\\PlaylistComparer.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Jirka\\.nuget\\packages\\embedio\\3.4.3\\embedio.3.4.3.nupkg.sha512",
+    "C:\\Users\\Jirka\\.nuget\\packages\\google.apis\\1.49.0\\google.apis.1.49.0.nupkg.sha512",
+    "C:\\Users\\Jirka\\.nuget\\packages\\google.apis.auth\\1.49.0\\google.apis.auth.1.49.0.nupkg.sha512",
+    "C:\\Users\\Jirka\\.nuget\\packages\\google.apis.core\\1.49.0\\google.apis.core.1.49.0.nupkg.sha512",
+    "C:\\Users\\Jirka\\.nuget\\packages\\google.apis.youtube.v3\\1.49.0.2197\\google.apis.youtube.v3.1.49.0.2197.nupkg.sha512",
     "C:\\Users\\Jirka\\.nuget\\packages\\greendonut\\11.0.8\\greendonut.11.0.8.nupkg.sha512",
     "C:\\Users\\Jirka\\.nuget\\packages\\hotchocolate\\11.0.8\\hotchocolate.11.0.8.nupkg.sha512",
     "C:\\Users\\Jirka\\.nuget\\packages\\hotchocolate.abstractions\\11.0.8\\hotchocolate.abstractions.11.0.8.nupkg.sha512",
@@ -55,12 +59,8 @@
     "C:\\Users\\Jirka\\.nuget\\packages\\microsoft.extensions.webencoders\\2.2.0\\microsoft.extensions.webencoders.2.2.0.nupkg.sha512",
     "C:\\Users\\Jirka\\.nuget\\packages\\microsoft.net.http.headers\\2.2.0\\microsoft.net.http.headers.2.2.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
-    "C:\\Users\\Jirka\\.nuget\\packages\\microsoft.owin\\4.1.1\\microsoft.owin.4.1.1.nupkg.sha512",
-    "C:\\Users\\Jirka\\.nuget\\packages\\microsoft.owin.security\\4.1.1\\microsoft.owin.security.4.1.1.nupkg.sha512",
-    "C:\\Users\\Jirka\\.nuget\\packages\\microsoft.owin.security.oauth\\4.1.1\\microsoft.owin.security.oauth.4.1.1.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
     "C:\\Users\\Jirka\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
-    "C:\\Users\\Jirka\\.nuget\\packages\\owin\\1.0.0\\owin.1.0.0.nupkg.sha512",
     "C:\\Users\\Jirka\\.nuget\\packages\\spotifyapi.web\\6.0.0\\spotifyapi.web.6.0.0.nupkg.sha512",
     "C:\\Users\\Jirka\\.nuget\\packages\\spotifyapi.web.auth\\6.0.0\\spotifyapi.web.auth.6.0.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
@@ -68,6 +68,7 @@
     "C:\\Users\\Jirka\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512",
     "C:\\Users\\Jirka\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.0\\system.diagnostics.diagnosticsource.4.7.0.nupkg.sha512",
     "C:\\Users\\Jirka\\.nuget\\packages\\system.io.pipelines\\4.7.0\\system.io.pipelines.4.7.0.nupkg.sha512",
+    "C:\\Users\\Jirka\\.nuget\\packages\\system.linq.async\\5.0.0\\system.linq.async.5.0.0.nupkg.sha512",
     "C:\\Users\\Jirka\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.security.accesscontrol\\4.5.0\\system.security.accesscontrol.4.5.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512",
@@ -82,46 +83,5 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512",
     "C:\\Users\\Jirka\\.nuget\\packages\\unosquare.swan.lite\\3.0.0\\unosquare.swan.lite.3.0.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Microsoft.Owin 4.1.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
-      "libraryId": "Microsoft.Owin",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Microsoft.Owin.Security 4.1.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
-      "libraryId": "Microsoft.Owin.Security",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Microsoft.Owin.Security.OAuth 4.1.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
-      "libraryId": "Microsoft.Owin.Security.OAuth",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Owin 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
-      "libraryId": "Owin",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    }
-  ]
+  "logs": []
 }

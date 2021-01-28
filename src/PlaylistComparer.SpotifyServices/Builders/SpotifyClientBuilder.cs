@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
-using PlaylistComparer.Spotify.Utils;
+using PlaylistComparer.StreamingServices.Utils;
 using SpotifyAPI.Web;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PlaylistComparer.Spotify.Builders
+namespace PlaylistComparer.StreamingServices.Builders
 {
     public class SpotifyClientBuilder : IBuilder
     {
@@ -22,8 +22,6 @@ namespace PlaylistComparer.Spotify.Builders
 
         public async Task<SpotifyClient> BuildClient()
         {
-            var auth = await _httpContextAccessor.HttpContext.AuthenticateAsync();
-
             String accessToken = await _httpContextAccessor.HttpContext.GetTokenAsync("Spotify", "access_token");
             var refreshToken = await _httpContextAccessor.HttpContext.GetTokenAsync("Spotify", "refresh_token");
 

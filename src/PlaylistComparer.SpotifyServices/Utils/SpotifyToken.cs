@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PlaylistComparer.Spotify.Utils
+namespace PlaylistComparer.StreamingServices.Utils
 {
     public class SpotifyToken
     {

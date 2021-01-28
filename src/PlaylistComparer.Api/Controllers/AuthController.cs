@@ -6,24 +6,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PlaylistComparer.Spotify.Controllers
+namespace PlaylistComparer.Api.Controllers
 {
     public class AuthController : Controller
     {
         [Route("{Controller}")]
         public IActionResult Get(String url = "/")
         {
-            //var loginRequest = new LoginRequest(
-            //  new Uri("http://localhost:3000"),
-            //  "c8bc902470624f89bb3a70aab0fedc0b",
-            //  LoginRequest.ResponseType.Code
-            //)
-            //{
-            //    Scope = new[] { Scopes.PlaylistReadPrivate, Scopes.PlaylistReadCollaborative, Scopes.PlaylistModifyPublic, Scopes.PlaylistModifyPrivate }
-            //};
-            //var uri = loginRequest.ToUri();
-            //return Redirect(uri.ToString());
-
             return Challenge(new AuthenticationProperties() { RedirectUri = url });
         }
     }

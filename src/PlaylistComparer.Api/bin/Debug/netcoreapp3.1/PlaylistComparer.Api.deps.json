@@ -27,8 +27,7 @@
           "HotChocolate": "11.0.8",
           "HotChocolate.AspNetCore": "11.0.8",
           "HotChocolate.AspNetCore.Playground": "10.5.5",
-          "Microsoft.Owin.Security.OAuth": "4.1.1",
-          "PlaylistComparer.Spotify": "1.0.0",
+          "PlaylistComparer.StreamingServices": "1.0.0",
           "SpotifyAPI.Web": "6.0.0",
           "SpotifyAPI.Web.Auth": "6.0.0",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
@@ -333,6 +332,69 @@
         },
         "compile": {
           "lib/netstandard2.0/EmbedIO.dll": {}
+        }
+      },
+      "Google.Apis/1.49.0": {
+        "dependencies": {
+          "Google.Apis.Core": "1.49.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Apis.dll": {
+            "assemblyVersion": "1.49.0.0",
+            "fileVersion": "1.49.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Apis.dll": {}
+        }
+      },
+      "Google.Apis.Auth/1.49.0": {
+        "dependencies": {
+          "Google.Apis": "1.49.0",
+          "Google.Apis.Core": "1.49.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Apis.Auth.PlatformServices.dll": {
+            "assemblyVersion": "1.49.0.0",
+            "fileVersion": "1.49.0.0"
+          },
+          "lib/netstandard2.0/Google.Apis.Auth.dll": {
+            "assemblyVersion": "1.49.0.0",
+            "fileVersion": "1.49.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Apis.Auth.PlatformServices.dll": {},
+          "lib/netstandard2.0/Google.Apis.Auth.dll": {}
+        }
+      },
+      "Google.Apis.Core/1.49.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Apis.Core.dll": {
+            "assemblyVersion": "1.49.0.0",
+            "fileVersion": "1.49.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Apis.Core.dll": {}
+        }
+      },
+      "Google.Apis.YouTube.v3/1.49.0.2197": {
+        "dependencies": {
+          "Google.Apis": "1.49.0",
+          "Google.Apis.Auth": "1.49.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Apis.YouTube.v3.dll": {
+            "assemblyVersion": "1.49.0.2197",
+            "fileVersion": "1.49.0.2197"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Apis.YouTube.v3.dll": {}
         }
       },
       "GreenDonut/11.0.8": {
@@ -850,52 +912,6 @@
         }
       },
       "Microsoft.NETCore.Platforms/2.0.0": {},
-      "Microsoft.Owin/4.1.1": {
-        "dependencies": {
-          "Owin": "1.0.0"
-        },
-        "runtime": {
-          "lib/net45/Microsoft.Owin.dll": {
-            "assemblyVersion": "4.1.1.0",
-            "fileVersion": "4.1.25372.136"
-          }
-        },
-        "compile": {
-          "lib/net45/Microsoft.Owin.dll": {}
-        }
-      },
-      "Microsoft.Owin.Security/4.1.1": {
-        "dependencies": {
-          "Microsoft.Owin": "4.1.1",
-          "Owin": "1.0.0"
-        },
-        "runtime": {
-          "lib/net45/Microsoft.Owin.Security.dll": {
-            "assemblyVersion": "4.1.1.0",
-            "fileVersion": "4.1.25372.136"
-          }
-        },
-        "compile": {
-          "lib/net45/Microsoft.Owin.Security.dll": {}
-        }
-      },
-      "Microsoft.Owin.Security.OAuth/4.1.1": {
-        "dependencies": {
-          "Microsoft.Owin": "4.1.1",
-          "Microsoft.Owin.Security": "4.1.1",
-          "Newtonsoft.Json": "12.0.3",
-          "Owin": "1.0.0"
-        },
-        "runtime": {
-          "lib/net45/Microsoft.Owin.Security.OAuth.dll": {
-            "assemblyVersion": "4.1.1.0",
-            "fileVersion": "4.1.25372.136"
-          }
-        },
-        "compile": {
-          "lib/net45/Microsoft.Owin.Security.OAuth.dll": {}
-        }
-      },
       "Microsoft.Win32.Registry/4.5.0": {
         "dependencies": {
           "System.Security.AccessControl": "4.5.0",
@@ -911,17 +927,6 @@
         },
         "compile": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
-      "Owin/1.0.0": {
-        "runtime": {
-          "lib/net40/Owin.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        },
-        "compile": {
-          "lib/net40/Owin.dll": {}
         }
       },
       "SpotifyAPI.Web/6.0.0": {
@@ -970,6 +975,17 @@
         }
       },
       "System.IO.Pipelines/4.7.0": {},
+      "System.Linq.Async/5.0.0": {
+        "runtime": {
+          "lib/netcoreapp3.1/System.Linq.Async.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.0.1"
+          }
+        },
+        "compile": {
+          "ref/netcoreapp3.1/System.Linq.Async.dll": {}
+        }
+      },
       "System.Memory/4.5.4": {},
       "System.Security.AccessControl/4.5.0": {
         "dependencies": {
@@ -1023,17 +1039,19 @@
           "lib/netstandard2.0/Swan.Lite.dll": {}
         }
       },
-      "PlaylistComparer.Spotify/1.0.0": {
+      "PlaylistComparer.StreamingServices/1.0.0": {
         "dependencies": {
+          "Google.Apis.YouTube.v3": "1.49.0.2197",
           "Microsoft.AspNetCore.Authentication": "2.2.0",
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
-          "SpotifyAPI.Web": "6.0.0"
+          "SpotifyAPI.Web": "6.0.0",
+          "System.Linq.Async": "5.0.0"
         },
         "runtime": {
-          "PlaylistComparer.Spotify.dll": {}
+          "PlaylistComparer.StreamingServices.dll": {}
         },
         "compile": {
-          "PlaylistComparer.Spotify.dll": {}
+          "PlaylistComparer.StreamingServices.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/3.1.0.0": {
@@ -2743,6 +2761,34 @@
       "path": "embedio/3.4.3",
       "hashPath": "embedio.3.4.3.nupkg.sha512"
     },
+    "Google.Apis/1.49.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fmXQQTxZFOBlnvokvdQMzq0Lt+g2QzpZ4H6U8lMMFHgAR8ZqxQnPN5yHDpoHf7a++hJHb5W3pALxauGsq+afKQ==",
+      "path": "google.apis/1.49.0",
+      "hashPath": "google.apis.1.49.0.nupkg.sha512"
+    },
+    "Google.Apis.Auth/1.49.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3V9ohvixQtjaEvk7T9Ac7E/KvwEPa7eL4aMNreJDI0CEPzCdQdk2zCvaJPRrNIjhe+UuBeOeom1oAOMFB74JHg==",
+      "path": "google.apis.auth/1.49.0",
+      "hashPath": "google.apis.auth.1.49.0.nupkg.sha512"
+    },
+    "Google.Apis.Core/1.49.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9DgGdtyzgrCfHWwc/HiDXDbykNMeKQozbEHYEUEcezRuH+YR3fvq7YGVBDmUM8g6qEL3kDk6h5EU4h0IJwue1w==",
+      "path": "google.apis.core/1.49.0",
+      "hashPath": "google.apis.core.1.49.0.nupkg.sha512"
+    },
+    "Google.Apis.YouTube.v3/1.49.0.2197": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZD6HpGhsyE22J01+nA1ZD9xrYrU26y4rzfD2aXC9gHuDt25c9tyi5+9U8BcHOS5JwgZhZLCi9Ez9ScamKfmPeg==",
+      "path": "google.apis.youtube.v3/1.49.0.2197",
+      "hashPath": "google.apis.youtube.v3.1.49.0.2197.nupkg.sha512"
+    },
     "GreenDonut/11.0.8": {
       "type": "package",
       "serviceable": true,
@@ -3093,27 +3139,6 @@
       "path": "microsoft.netcore.platforms/2.0.0",
       "hashPath": "microsoft.netcore.platforms.2.0.0.nupkg.sha512"
     },
-    "Microsoft.Owin/4.1.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-KtjkRz4COQRqrwOBMf+XKW1ZsdiFMqipbmM0khhNJIx6U9VRprbwRGdSq1++PHlZrIwHMmwRHC0nILNSHGkcaA==",
-      "path": "microsoft.owin/4.1.1",
-      "hashPath": "microsoft.owin.4.1.1.nupkg.sha512"
-    },
-    "Microsoft.Owin.Security/4.1.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-TdqTlOBgh2JKdG0uolwQJeAjW/TLomDN+dGh79Tpv5haY/+u+B2I7X+Syf7GBht70DC0yNMonbQv1eQit7NkVA==",
-      "path": "microsoft.owin.security/4.1.1",
-      "hashPath": "microsoft.owin.security.4.1.1.nupkg.sha512"
-    },
-    "Microsoft.Owin.Security.OAuth/4.1.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-4Z/36Dz47P6Xw10yjy+z7Oc1tXV8/iSBdz3QAEnONuw+8Y3aoP6rndsaN8rU/ofXLrF6g25qEiVCiADsrlKJgA==",
-      "path": "microsoft.owin.security.oauth/4.1.1",
-      "hashPath": "microsoft.owin.security.oauth.4.1.1.nupkg.sha512"
-    },
     "Microsoft.Win32.Registry/4.5.0": {
       "type": "package",
       "serviceable": true,
@@ -3127,13 +3152,6 @@
       "sha512": "sha512-6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
       "path": "newtonsoft.json/12.0.3",
       "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
-    },
-    "Owin/1.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-OseTFniKmyp76mEzOBwIKGBRS5eMoYNkMKaMXOpxx9jv88+b6mh1rSaw43vjBOItNhaLFG3d0a20PfHyibH5sw==",
-      "path": "owin/1.0.0",
-      "hashPath": "owin.1.0.0.nupkg.sha512"
     },
     "SpotifyAPI.Web/6.0.0": {
       "type": "package",
@@ -3183,6 +3201,13 @@
       "sha512": "sha512-S0L7oyWyQdVzD+5xIvcC8h44Vc+FY+qXDCLRh2+YsuBDORNphcxNX+tXR6ByLMjQ/7jDaXxsYBF6qbAr7ZIaFw==",
       "path": "system.io.pipelines/4.7.0",
       "hashPath": "system.io.pipelines.4.7.0.nupkg.sha512"
+    },
+    "System.Linq.Async/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cPtIuuH8TIjVHSi2ewwReWGW1PfChPE0LxPIDlfwVcLuTM9GANFTXiMB7k3aC4sk3f0cQU25LNKzx+jZMxijqw==",
+      "path": "system.linq.async/5.0.0",
+      "hashPath": "system.linq.async.5.0.0.nupkg.sha512"
     },
     "System.Memory/4.5.4": {
       "type": "package",
@@ -3275,7 +3300,7 @@
       "path": "unosquare.swan.lite/3.0.0",
       "hashPath": "unosquare.swan.lite.3.0.0.nupkg.sha512"
     },
-    "PlaylistComparer.Spotify/1.0.0": {
+    "PlaylistComparer.StreamingServices/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

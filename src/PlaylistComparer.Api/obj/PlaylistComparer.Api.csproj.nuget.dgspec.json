@@ -33,8 +33,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Jirka\\source\\repos\\PlaylistComparer\\src\\PlaylistComparer.SpotifyServices\\PlaylistComparer.Spotify.csproj": {
-                "projectPath": "C:\\Users\\Jirka\\source\\repos\\PlaylistComparer\\src\\PlaylistComparer.SpotifyServices\\PlaylistComparer.Spotify.csproj"
+              "C:\\Users\\Jirka\\source\\repos\\PlaylistComparer\\src\\PlaylistComparer.SpotifyServices\\PlaylistComparer.StreamingServices.csproj": {
+                "projectPath": "C:\\Users\\Jirka\\source\\repos\\PlaylistComparer\\src\\PlaylistComparer.SpotifyServices\\PlaylistComparer.StreamingServices.csproj"
               }
             }
           }
@@ -60,10 +60,6 @@
             "HotChocolate.AspNetCore.Playground": {
               "target": "Package",
               "version": "[10.5.5, )"
-            },
-            "Microsoft.Owin.Security.OAuth": {
-              "target": "Package",
-              "version": "[4.1.1, )"
             },
             "SpotifyAPI.Web": {
               "target": "Package",
@@ -96,12 +92,12 @@
         }
       }
     },
-    "C:\\Users\\Jirka\\source\\repos\\PlaylistComparer\\src\\PlaylistComparer.SpotifyServices\\PlaylistComparer.Spotify.csproj": {
+    "C:\\Users\\Jirka\\source\\repos\\PlaylistComparer\\src\\PlaylistComparer.SpotifyServices\\PlaylistComparer.StreamingServices.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jirka\\source\\repos\\PlaylistComparer\\src\\PlaylistComparer.SpotifyServices\\PlaylistComparer.Spotify.csproj",
-        "projectName": "PlaylistComparer.Spotify",
-        "projectPath": "C:\\Users\\Jirka\\source\\repos\\PlaylistComparer\\src\\PlaylistComparer.SpotifyServices\\PlaylistComparer.Spotify.csproj",
+        "projectUniqueName": "C:\\Users\\Jirka\\source\\repos\\PlaylistComparer\\src\\PlaylistComparer.SpotifyServices\\PlaylistComparer.StreamingServices.csproj",
+        "projectName": "PlaylistComparer.StreamingServices",
+        "projectPath": "C:\\Users\\Jirka\\source\\repos\\PlaylistComparer\\src\\PlaylistComparer.SpotifyServices\\PlaylistComparer.StreamingServices.csproj",
         "packagesPath": "C:\\Users\\Jirka\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Jirka\\source\\repos\\PlaylistComparer\\src\\PlaylistComparer.SpotifyServices\\obj\\",
         "projectStyle": "PackageReference",
@@ -137,6 +133,10 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Google.Apis.YouTube.v3": {
+              "target": "Package",
+              "version": "[1.49.0.2197, )"
+            },
             "Microsoft.AspNetCore.Authentication": {
               "target": "Package",
               "version": "[2.2.0, )"
@@ -148,6 +148,10 @@
             "SpotifyAPI.Web": {
               "target": "Package",
               "version": "[6.0.0, )"
+            },
+            "System.Linq.Async": {
+              "target": "Package",
+              "version": "[5.0.0, )"
             }
           },
           "imports": [

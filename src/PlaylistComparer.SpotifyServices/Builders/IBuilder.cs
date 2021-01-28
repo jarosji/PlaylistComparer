@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PlaylistComparer.Spotify.Builders
+namespace PlaylistComparer.StreamingServices.Builders
 {
     public interface IBuilder
     {

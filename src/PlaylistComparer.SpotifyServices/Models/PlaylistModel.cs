@@ -1,32 +1,40 @@
-﻿using SpotifyAPI.Web;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace PlaylistComparer.Spotify.Models
+namespace PlaylistComparer.StreamingServices.Models
 {
-    public class PlaylistModel : FullPlaylist
+    public class PlaylistModel
     {
-        public PlaylistModel(FullPlaylist playlist)
-        {
-            Collaborative = playlist.Collaborative;
-            Description = playlist.Description;
-            ExternalUrls = playlist.ExternalUrls;
-            Followers = playlist.Followers;
-            Href = playlist.Href;
-            Id = playlist.Id;
-            Images = playlist.Images;
-            Name = playlist.Name;
-            Owner = playlist.Owner;
-            Public = playlist.@Public;
-            SnapshotId = playlist.SnapshotId;
-            Tracks = playlist.Tracks;
-            Type = playlist.Type;
-            Uri = playlist.Uri;
-        }
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
         public int PlayTime { get; set; }
-        public int Duplicates { get; set; }
-        public List<FullTrack> DuplicateTracks { get; set; }
+        public int Followers { get; set; }
+        public List<ImageModel> Images { get; set; }
+        public List<TrackModel> Tracks { get; set; }
+        public List<int> DuplicatePositions { get; set; }
+        public UserModel Owner { get; set; }
+        public string Href { get; set; }
+        public string Uri { get; set; }
+
+        //Spotify
+
+        //public bool Collaborative { get; set; }
+        //public Dictionary<string, string> ExternalUrls { get; set; }
+        //public bool Public { get; set; }
+        //public string SnapshotId { get; set; }
+        //public Paging<PlaylistTrack<IPlayableItem>>? Tracks { get; set; }
+        //public string Type { get; set; }
+
+        //YouTube
+
+        //public PlaylistContentDetails ContentDetails { get; set; }
+        //public string ETag { get; set; }
+        //public string Kind { get; set; }
+        //public IDictionary<string, PlaylistLocalization> Localizations { get; set; }
+        //public virtual PlaylistPlayer Player { get; set; }
+        //public virtual PlaylistSnippet Snippet { get; set; }
+        //public virtual PlaylistStatus Status { get; set; }
     }
 }
